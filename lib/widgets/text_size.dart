@@ -34,10 +34,10 @@ class SmallText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(title,style: const TextStyle(
-        color: Colors.white,
+    return Text(title,textAlign: TextAlign.center, style: const TextStyle(
+        color: Colors.white60,
         fontWeight: FontWeight.bold,
-        fontSize: 15.0
+        fontSize: 18.0
     ),);
   }
 }

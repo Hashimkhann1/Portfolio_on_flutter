@@ -119,7 +119,14 @@ class _PortfolioState extends State<Portfolio> {
                         SizedBox(
                           height: 40.0,
                         ),
-                        SmallText(title: 'Hello! My Name is Shahab Mustafa,I From Charsadda.I am Flutter and Full Stack Web Developer'),
+                        SmallText(title: 'Hello! My Name is Shahab Mustafa,I From Charsadda.I am Flutter and Full Stack Web Developer.\nMy Education Second year.I started Associated Degree on Jinnah College Peshawar '),
+                        SizedBox(
+                          height: 40.0,
+                        ),
+                        CustomButton(title: 'See My CV',
+                            onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => CVPage()));
+                        }),
                       ],
                     ),
                   ],
@@ -129,6 +136,22 @@ class _PortfolioState extends State<Portfolio> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CVPage extends StatefulWidget {
+  const CVPage({Key? key}) : super(key: key);
+
+  @override
+  State<CVPage> createState() => _CVPageState();
+}
+
+class _CVPageState extends State<CVPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: Image.asset("images/cv.jpg")),
     );
   }
 }
