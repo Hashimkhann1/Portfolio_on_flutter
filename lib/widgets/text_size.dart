@@ -9,6 +9,7 @@ class LargText extends StatelessWidget {
     return Text(title,style: const TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
+      letterSpacing: 10,
       fontSize: 40.0
     ),);
   }
