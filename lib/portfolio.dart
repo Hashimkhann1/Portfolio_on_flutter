@@ -1,8 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:porfolio/Pages/about_page.dart';
+import 'package:porfolio/Pages/certificate.dart';
+import 'package:porfolio/Pages/contact.dart';
+import 'package:porfolio/Pages/home_page.dart';
+import 'package:porfolio/Pages/projects.dart';
+import 'package:porfolio/Pages/skill_page.dart';
 import 'package:porfolio/widgets/custom_button.dart';
-import 'package:porfolio/widgets/text_size.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({Key? key}) : super(key: key);
@@ -27,7 +33,9 @@ class _PortfolioState extends State<Portfolio> {
             ),
             Row(
               children: [
-                CustomButton(title: 'Home', onTap: (){}),
+                CustomButton(title: 'Home',
+                    onTap: (){
+                }),
                 const SizedBox(
                   width: 10.0,
                 ),
@@ -59,101 +67,18 @@ class _PortfolioState extends State<Portfolio> {
           itemBuilder: (context,index){
           return AnimationConfiguration.staggeredList(
               position: index,
-              duration: Duration(seconds: 3),
+              duration: Duration(seconds: 4),
               child: SlideAnimation(
                 verticalOffset: 300.0,
                 child: FadeInAnimation(
                   child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 60.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 770.0,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              LargText(title: "I'm Shahab Mustafa."),
-                              Row(
-                                children: [
-                                  const SizedBox(width: 10.0, height: 200.0),
-                                  const Text(
-                                    "I am",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 43.0,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 20.0, height: 100.0),
-                                  DefaultTextStyle(
-                                    style: const TextStyle(
-                                      fontSize: 40.0,
-                                      color: Color(0xFFD50000),
-                                      fontFamily: 'Horizon',
-                                    ),
-                                    child: AnimatedTextKit(
-                                      animatedTexts: [
-                                        RotateAnimatedText('Flutter Devloper'),
-                                        RotateAnimatedText('Full Stack Web Developer'),
-                                        RotateAnimatedText('Android Developer'),
-                                        RotateAnimatedText('Youtuber'),
-                                      ],
-                                      onTap: () {
-                                        print("Tap Event");
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 790.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                CircleAvatar(
-                                  backgroundImage: AssetImage("images/avatar.jpg"),
-                                  radius: 100.0,
-                                ),
-                                Column(
-                                  children: [
-                                    LargText(title: 'About'),
-                                    SizedBox(
-                                      height: 40.0,
-                                    ),
-                                    SmallText(title: 'Hello! My Name is Shahab Mustafa,I From Charsadda.I am Flutter and Full Stack Web Developer.\nMy Education Second year.I started Associated Degree on Jinnah College Peshawar '),
-                                    SizedBox(
-                                      height: 40.0,
-                                    ),
-                                    CustomButton(title: 'See My CV',
-                                        onTap: (){
-                                          Navigator.push(context, MaterialPageRoute(builder: (context) => CVPage()));
-                                        }),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 770.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            LargText(title: 'Experince')
-                          ],
-                        ),
-                      ),
+                    children: const [
+                      HomePage(),
+                      AboutPage(),
+                      SkillsPage(),
+                      Projects(),
+                      Certificate(),
+                      Contact(),
                     ],
                   ),
                 ),

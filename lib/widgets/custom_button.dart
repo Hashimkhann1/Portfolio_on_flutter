@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Colors.white60,
-              Colors.black,
+              Colors.black
             ],
           )
         ),
